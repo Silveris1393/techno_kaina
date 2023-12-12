@@ -4,13 +4,5 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is my second mini project while learning flutter. This is a app for salesworkers and managers, Salesworker inputs all the data barcode, price and number. Selecting where to send sms to. The manager sees the message and respons via simple text. This app uses background_sms tool and sens sms via sim card to your selected numbers. Later will be added functionality of adding , deleting numbers.
+This was good for salesworkers to quickly look for a price when customers asks for a discount, that way you can quickly send sms to ask your manager what price you can sell while still having conversation with a client.
