@@ -2,6 +2,7 @@ import 'package:background_sms/background_sms.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'settings_page.dart';
 
@@ -38,6 +39,23 @@ class MyAppState extends State<MyApp> {
     }
   }
 
+  Future<void> _readNumbersAndNames() async {
+    final prefs = await SharedPreferences.getInstance();
+    // Get the list of strings from the shared preferences
+    List<String> numbersAndNames = prefs.getStringList('numbersAndNames') ?? [];
+    // Convert the list of strings into a list of maps
+    List<Map<String, String>> namesAndNumbers = numbersAndNames.map((item) {
+      // Split the string by the '|' character
+      List<String> parts = item.split('|');
+      // Return a map with the name and number
+      return {'name': parts[0], 'number': parts[1]};
+    }).toList();
+    // Update the state with the new list
+    setState(() {
+      namesAndNumbers = namesAndNumbers;
+    });
+  }
+
   final MultiSelectController<String> _controller =
       MultiSelectController(deSelectPerpetualSelectedItems: true);
   Future<bool?> get _supportCustomSim async =>
@@ -45,6 +63,7 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    _readNumbersAndNames();
     return MaterialApp(
         home: Builder(
       builder: (context) => Scaffold(

@@ -37,6 +37,7 @@ dependencies:
   background_sms: ^0.0.4
   permission_handler: ^8.3.0
   flutter_multi_select_items: ^0.4.2
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
